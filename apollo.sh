@@ -15,6 +15,10 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
+export KBUILD_BUILD_USER=hlong
+export KBUILD_BUILD_HOST=moon
+
 # Main Dir
 CR_DIR=$(pwd)
 # Define proper arch and dir for dts files
@@ -72,11 +76,11 @@ CR_SELINUX="1"
 CR_KSU="n"
 CR_CLEAN="n"
 # Compiler Paths
-CR_GCC4=~/Android/Toolchains/aarch64-linux-android-4.9/bin/aarch64-linux-android-
-CR_GCC9=~/Android/Toolchains/aarch64-linux-gnu-9.x/bin/aarch64-linux-gnu-
-CR_GCC12=~/Android/Toolchains/aarch64-linux-gnu-12.x/bin/aarch64-linux-gnu-
-CR_GCC13=~/Android/Toolchains/aarch64-linux-gnu-13.x/bin/aarch64-linux-gnu-
-CR_CLANG=~/Android/Toolchains/clang-r383902-jopp
+CR_GCC4=$CR_DIR/../aarch64-linux-android-4.9/bin/aarch64-linux-android-
+CR_GCC9=$CR_DIR/../aarch64-none-linux-gnu-9.x/bin/aarch64-none-linux-gnu-
+CR_GCC12=$CR_DIR/../aarch64-linux-gnu-12.x/bin/aarch64-linux-gnu-
+CR_GCC13=$CR_DIR/../aarch64-linux-gnu-13.x/bin/aarch64-linux-gnu-
+CR_CLANG=$CR_DIR/../clang-r383902-jopp
 #####################################################
 
 # Compiler Selection
@@ -301,7 +305,7 @@ PACK_BOOT_IMG()
         echo " Abort "
 	fi
 	# Remove red warning at boot
-	echo -n "SEANDROIDENFORCE" » $CR_AIK/image-new.img
+	echo -n "SEANDROIDENFORCE" ï¿½ $CR_AIK/image-new.img
 	# Copy boot.img to Production folder
 	if [ ! -e $CR_PRODUCT ]; then
         mkdir $CR_PRODUCT
